@@ -543,6 +543,9 @@ void __init latona_peripherals_init(void)
 	omap_i2c_init();
 	atmel_dev_init();
 	platform_device_register(&omap_vwlan_device);
+#ifdef CONFIG_SAMSUNG_BATTERY
+	latona_battery_init();
+#endif 
 #ifdef CONFIG_SAMSUNG_PHONE_SVNET
 	latona_phone_svnet_init(); /* Initialize Phone SVNET Drivers */ 
 #endif
