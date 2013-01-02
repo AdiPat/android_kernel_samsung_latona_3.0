@@ -134,8 +134,8 @@ int P_dev_powerup_set_op_mode(u16);
 
 int P_dev_get_prox_output(u16 *);
 
-extern int pl_sensor_power_on();
-extern int pl_sensor_power_off();
+extern int pl_sensor_power_on(void);
+extern int pl_sensor_power_off(void);
 
 /*static functions*/
 static void enable_int(void);
@@ -1285,12 +1285,10 @@ static ssize_t P_delay_show(struct device *dev, struct device_attribute *attr, c
 
 static ssize_t P_delay_store(struct device *dev, struct device_attribute *attr, const char *buf, size_t count)
 {
-	ssize_t ret = strlen(buf);
-	trace_in();
-
     int enabled = 0;
     u16 power_state, mode;
-   
+    ssize_t ret = strlen(buf);
+    trace_in(); 
     trace_in();
 
     if( P_dev_get_pwrstate_mode(&power_state, &mode) < 0 )
