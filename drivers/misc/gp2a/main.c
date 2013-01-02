@@ -374,7 +374,7 @@ int __init PL_driver_init(void)
 	GPIO_setting();
 
 	/*Proximity sensor: IRQ*/
-	set_irq_type(P_IRQ, IRQF_TRIGGER_FALLING);
+	irq_set_irq_type(P_IRQ, IRQF_TRIGGER_FALLING);
 
 	if( (ret = request_irq(P_IRQ,P_isr,0 ,DEVICE_NAME, (void *)NULL)) < 0 )
 	{
