@@ -1055,6 +1055,12 @@ CONFIG_MTD_ONENAND_OMAP2=y
 # CONFIG_MPU_SENSORS_KXTF9 is not set
 # CONFIG_MPU_SENSORS_AK8975 is not set
 
+# GP2A Proximity and Light Sensor
+
+CONFIG_INPUT_GP2A=y
+# CONFIG_INPUT_GP2A_USE_GPIO_I2C is not set
+
+
 #
 # LGE Justin/Black Sensor Drivers
 #
