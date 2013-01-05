@@ -25,6 +25,7 @@ extern void __init latona_peripherals_init(void);
 extern void __init latona_display_init(void);
 extern void __init latona_phone_svnet_init(void);
 extern void __init latona_battery_init(void);
+extern void __init latona_sensors_init(void);
 
 #if (defined(CONFIG_VIDEO_IMX046) || defined(CONFIG_VIDEO_IMX046_MODULE)) && \
 	defined(CONFIG_VIDEO_OMAP3)
