@@ -488,6 +488,11 @@ static struct i2c_board_info __initdata latona_i2c_bus3_info[] = {
 		.irq = OMAP_GPIO_IRQ(OMAP_GPIO_FUEL_INT_N),
 	},
 #endif
+#ifdef CONFIG_INPUT_GP2A
+	{
+		I2C_BOARD_INFO("gp2a", 0x44),
+	},
+#endif
 };
 
 static int __init omap_i2c_init(void)
