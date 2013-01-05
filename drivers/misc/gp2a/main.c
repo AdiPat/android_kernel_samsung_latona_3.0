@@ -319,7 +319,6 @@ static void GPIO_setting( void )
 
 	__raw_writel( reg_val, gpio53_pad_config_reg );
 
-#if defined(CONFIG_MACH_SAMSUNG_LATONA) && CONFIG_SAMSUNG_REL_HW_REV >= 1
 	gpio_free(OMAP_GPIO_ALS_EN);
 	if(gpio_is_valid(OMAP_GPIO_ALS_EN))
 	{
@@ -329,7 +328,7 @@ static void GPIO_setting( void )
 		}
 		gpio_direction_output(OMAP_GPIO_ALS_EN, 0);
 	}
-#endif
+
 
 	trace_out(); 
 }
@@ -432,10 +431,9 @@ void __exit PL_driver_exit(void)
 
 	gpio_free(OMAP_GPIO_PS_VOUT);
 
-#if defined(CONFIG_MACH_SAMSUNG_LATONA) && CONFIG_SAMSUNG_REL_HW_REV >= 1
 	gpio_set_value(OMAP_GPIO_ALS_EN, 0);
 	gpio_free(OMAP_GPIO_ALS_EN);
-#endif
+
 
 	/*Proximity sensor: IRQ*/
 	free_irq(P_IRQ, (void *)NULL);

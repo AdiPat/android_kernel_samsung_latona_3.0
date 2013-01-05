@@ -47,9 +47,8 @@ int pl_sensor_power_on( void )
 
 	trace_in();
 
-#if defined(CONFIG_MACH_SAMSUNG_LATONA) && CONFIG_SAMSUNG_REL_HW_REV >= 1
 	gpio_set_value(OMAP_GPIO_ALS_EN, 1);
-#endif
+
 
 	if( !vaux1 || !vaux2 )
 	{
@@ -99,9 +98,8 @@ int pl_sensor_power_off( void )
 
 	if(atomic_read(&reference_count) == 0)
 	{	
-#if defined(CONFIG_MACH_SAMSUNG_LATONA) && CONFIG_SAMSUNG_REL_HW_REV >= 1
 		gpio_set_value(OMAP_GPIO_ALS_EN, 0);
-#endif
+
 		ret = regulator_disable( vaux1 );
 		return ret ? ret : regulator_disable( vaux2 );
 	}
