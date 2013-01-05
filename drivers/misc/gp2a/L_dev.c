@@ -842,7 +842,7 @@ static ssize_t L_data_show(struct device *dev, struct device_attribute *attr, ch
 
     spin_lock_irqsave(&input_data->event_lock, flags);
 
-    x = input_data->abs[ABS_MISC];
+    x = input_data->absinfo->value;
 
     spin_unlock_irqrestore(&input_data->event_lock, flags);
 
@@ -973,7 +973,7 @@ static ssize_t L_status_show(struct device *dev, struct device_attribute *attr, 
 
     spin_lock_irqsave(&L_dev.inputdevice->event_lock, flags);
 
-    status = L_dev.inputdevice->abs[ABS_BRAKE];
+    status = L_dev.inputdevice->absinfo->value;
 
     spin_unlock_irqrestore(&L_dev.inputdevice->event_lock, flags);
 

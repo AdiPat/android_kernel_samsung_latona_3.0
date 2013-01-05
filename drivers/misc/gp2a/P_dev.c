@@ -1193,7 +1193,7 @@ static ssize_t P_data_show(struct device *dev, struct device_attribute *attr, ch
 
     spin_lock_irqsave(&P_dev.inputdevice->event_lock, flags);
 
-    x = P_dev.inputdevice->abs[ABS_DISTANCE];
+    x = P_dev.inputdevice->absinfo->value;
 
     spin_unlock_irqrestore(&P_dev.inputdevice->event_lock, flags);
 
@@ -1330,7 +1330,7 @@ static ssize_t P_status_show(struct device *dev, struct device_attribute *attr, 
 
     spin_lock_irqsave(&P_dev.inputdevice->event_lock, flags);
 
-    status = P_dev.inputdevice->abs[ABS_BRAKE];
+    status = P_dev.inputdevice->absinfo->value;
 
     spin_unlock_irqrestore(&P_dev.inputdevice->event_lock, flags);
 
