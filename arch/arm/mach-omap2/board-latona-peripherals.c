@@ -505,6 +505,9 @@ static struct i2c_board_info __initdata latona_i2c_bus2_info[] = {
 		.irq = OMAP_GPIO_IRQ(OMAP_GPIO_FUEL_INT_N),
 	},
 #endif
+	{
+		I2C_BOARD_INFO("Si4709_driver", 0x10),			
+	},
 };
 
 static struct i2c_board_info __initdata latona_i2c_bus3_info[] = {
