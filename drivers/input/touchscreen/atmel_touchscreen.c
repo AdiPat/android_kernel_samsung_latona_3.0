@@ -47,10 +47,6 @@
 #define TOUCH_KEYSET_T31                          31u
 #define TOUCH_XSLIDERSET_T32                      32u
 
-/* Enable Debugging */
-#define TSP_DEBUG 1
-
-
 #include <linux/errno.h>
 #include <linux/kernel.h>
 #include <linux/module.h>
@@ -550,14 +546,18 @@ extern unsigned char g_version, g_build, qt60224_notfound_flag;
 
 void disable_tsp_irq(void)
 {
+#if TSP_DEBUG
 	printk(KERN_DEBUG "[TSP] disabling tsp irq and flushing workqueue\n");
+#endif
 	disable_irq(tsp.irq);
 	flush_workqueue(tsp_wq);
 }
 
 void enable_tsp_irq(void)
 {
+#if TSP_DEBUG
 	printk(KERN_DEBUG "[TSP] enabling tsp irq\n");
+#endif
 	enable_irq(tsp.irq);	
 }
 
@@ -929,7 +929,9 @@ void handle_multi_touch(uint8_t *atmel_msg)
 	{
 		if((atmel_msg[1]&0x10) == 0x10)
 		{
+#if TSP_DEBUG
 			printk(KERN_DEBUG "[TSP] The device is calibrating...\n");
+#endif
 			cal_check_flag = 1;
 			qt_timer_state = 0;
 			qt_time_point = 0;
@@ -1379,7 +1381,9 @@ extern int atmel_resume(void);
 
 static int touchscreen_suspend(struct platform_device *pdev, pm_message_t state)
 {
+#if TSP_DEBUG
 	printk(KERN_DEBUG "[TSP] touchscreen_suspend : touch power off\n");
+#endif
 	atmel_suspend();
 	if (menu_button == 1)
 	{
@@ -1408,8 +1412,9 @@ static int touchscreen_suspend(struct platform_device *pdev, pm_message_t state)
 
 static int touchscreen_resume(struct platform_device *pdev)
 {
+#if TSP_DEBUG
 	printk(KERN_DEBUG "[TSP] touchscreen_resume : touch power on\n");
-
+#endif
 	atmel_resume();
 //	initialize_multi_touch(); 
 	enable_irq(tsp.irq);
