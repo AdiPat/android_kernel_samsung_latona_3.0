@@ -94,7 +94,7 @@ EXPORT_SYMBOL(latona_board_wakeup_gpio_size);
 unsigned int (*latona_board_wakeup_gpio_ptr) = __omap_wakeup_gpio;
 EXPORT_SYMBOL(latona_board_wakeup_gpio_ptr);
 
-static struct omap_board_mux __omap_board_core_mux[] __initdata = {
+static struct omap_board_mux __omap_board_core_mux[] = {
 
 /*
  *		Name, reg-offset,
