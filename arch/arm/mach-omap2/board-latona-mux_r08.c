@@ -48,7 +48,7 @@
 
 #define LATONA_OMAP_OUTPUT_GPIO(name, val)		{name, val, (unsigned int)#name},
 
-static unsigned int __omap_board_output_gpio[][3] __initdata = {
+static unsigned int __omap_board_output_gpio[][3] = {
 	LATONA_OMAP_OUTPUT_GPIO(OMAP_GPIO_PS_HOLD_PU, 0)
 	LATONA_OMAP_OUTPUT_GPIO(OMAP_GPIO_FM_nRST, 0)
 	LATONA_OMAP_OUTPUT_GPIO(OMAP_GPIO_CAM_CIF_NRST, 0)
