@@ -75,7 +75,7 @@ EXPORT_SYMBOL(latona_board_output_gpio_size);
 unsigned int (*latona_board_output_gpio_ptr)[3] = __omap_board_output_gpio;
 EXPORT_SYMBOL(latona_board_output_gpio_ptr);
 
-static unsigned int __omap_wakeup_gpio[] __initdata = {
+static unsigned int __omap_wakeup_gpio[] = {
 	OMAP_GPIO_JACK_NINT,
 	OMAP_GPIO_IPC_SRDY,
 	OMAP_GPIO_CHG_ING_N,
